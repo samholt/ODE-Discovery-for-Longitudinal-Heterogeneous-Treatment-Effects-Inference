@@ -1,0 +1,17 @@
+pysindy
+pandas==1.5.3
+seaborn
+wandb
+torch
+tqdm
+torchcde
+pytorch-lightning==1.4.5
+torchmetrics==0.6.0
+ray[tune]
+torch-ema
+hydra_colorlog
+mlflow
+sympy2jax
+chex==0.0.4
+# optax==0.1.3
+optuna

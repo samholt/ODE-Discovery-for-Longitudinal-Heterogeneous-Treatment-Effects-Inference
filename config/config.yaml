@@ -1,0 +1,59 @@
+run:
+  epochs: 100
+  log_path: ''
+  device: ''
+  window: 50
+  train_samples: 1000
+  val_samples: 100
+  test_samples: 100
+  obs_noise: 0.01
+  bsv_noise: 0.01
+  domain_conf: 2.0 # Gamma
+  step_actions: 5
+  batch_size: 32
+  normalize_data: true
+  clip_grad_norm: 1.0
+  clip_grad_norm_on: true
+sindy:
+  sindy_alpha: 0.5
+  dataset_params:
+    sindy_threshold:
+      cancer_sim: 0.001
+      EQ_5: 0.001
+      EQ_4: 0.1
+    lam:
+      cancer_sim: 10.0
+      EQ_5: 10.0
+      EQ_4: 10.0
+tecde:
+  learning_rate: 1e-2
+  hidden_channels_x: 8
+  hidden_units: 128
+  mcd: true
+  early_stopping:
+    patience: 5
+    delta: 0.0001
+gnet:
+  mcsamples: 25
+setup:
+  debug_mode: true
+  flush_mode: false
+  multi_process_results: false
+  multi_process_cores: 1
+  experiment: 'MAIN_TABLE' # ['MAIN_TABLE', 'INSIGHT_CONFOUNDING', 'ABLATION_ONE_ODE', 'ABLATION_MORE_COMPLEX_BASIS_FUNCTIONS', 'INSIGHT_RECOVER_PARAMETRIC_DIST', 'INSIGHT_LESS_SAMPLES']
+  ct_methods_to_evaluate: ['insite', 'sindy', 'wsindy', 'crn', 'msm', 'gnet', 'ct', 'rmsn'] #, 'sindy', 'insite', 'wsindy']
+  ct_datasets_to_evaluate: ['cancer_sim', 'EQ_5_A', 'EQ_5_B', 'EQ_5_C', 'EQ_5_D', 'EQ_4_A', 'EQ_4_B', 'EQ_4_C', 'EQ_4_D']
+  domain_confs: [0,1,2,3,4]
+  wandb:
+    project: CausalODEs
+    track: false
+  log_dir: logs
+  torch_deterministic: true
+  seed_start: 0
+  seed_runs: 10
+  normalize_obs: true
+  cuda: true
+  load_from_cache: true
+  force_recache: false
+  treatment_mode: 'multilabel' # 'multilabel', 'multiclass'
+  cf_seq_mode: 'random_trajectories'

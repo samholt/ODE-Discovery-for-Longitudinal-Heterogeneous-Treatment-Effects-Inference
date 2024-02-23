@@ -1,0 +1,28 @@
+# @package _global_
+model:
+  name: INSITE
+  lag_features: 1
+  insite_val_error_threshold: 1e-4
+  # sindy_threshold: 0.02
+  lam: ???
+  sindy_threshold: ???
+  sindy_alpha: ???
+  smooth_input_data: false
+  sindy_quantize: false
+  sindy_quantize_global_model_round_to: 2
+  joint_model: false
+  insite: true
+  wsindy: false
+  use_smoothed_finite_difference: false
+  tune_hparams: false
+  tune_range: 1000
+  ablation_more_complex_basis_functions: false
+  insight_recover_parametric_dist: false
+  normalize: false
+  resources_per_trial:
+  dataset_name: ???
+  sindy:
+    _target_: src.models.sindy.SINDY
+    
+exp:
+  update_alpha: False

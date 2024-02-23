@@ -1,0 +1,32 @@
+# @package _global_
+model:
+  tune_hparams: True
+  hparams_loguniform:
+    lam:
+      - 1
+      - 1E9
+  hparams_grid:
+    lam:
+      - 0
+      - 10
+      - 100
+      - 200
+      - 500
+      - 1000
+      - 2000
+    # sindy_threshold:
+    #   - 0.001
+    #   - 0.01
+    #   - 0.1
+    #   - 1.0
+    # sindy_alpha:
+    #   - 0.001
+    #   - 0.01
+    #   - 0.1
+    #   - 1.0
+    # smooth_input_data:
+    #   - true
+    #   - false
+  resources_per_trial:
+    cpu: 1.0
+    # gpu: 0.0
